@@ -1,0 +1,11 @@
+email: jaritachan37@hotmail.com
+fullname: test
+title: test
+state: enabled
+access:
+  admin:
+    login: true
+    super: true
+  site:
+    login: true
+hashed_password: $2y$10$mpap8tchsBkblXb0P26XYeAjih6nNnvQfnuNxX7dir0kGsJoHypFG

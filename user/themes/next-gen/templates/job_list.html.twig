@@ -1,0 +1,31 @@
+{% set jobs = page.collection({'items':'@self.children', 'pagination': true, 'limit': 10, 'order': {'by': 'default', 'dir': 'asc'}}) %}
+{% embed 'partials/base.html.twig' %}
+{% block content %}
+
+<main>
+<div class="section no-pad-bot" id="index-banner">
+<div class="container">
+  <div class="container">
+{% for job in jobs %}
+    <div class="col s12 m7 spacing">
+        <div class="job-card">
+           <div class="item card-left">
+              <img class="job-loc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Empire_State_Building_%28HDR%29.jpg/150px-Empire_State_Building_%28HDR%29.jpg" >
+           </div>
+           <div class="item card-right">
+              <h3 class="header-mini">{{ job.title }}</h3>
+              <a href="{{ job.url }}"><h3 class="header-sub">See More</h3></a>
+              <div class="job-desc">{{ job.content }}</div>
+              <h3 class="header-loc">{{ job.header.location }}</h3>
+           </div>
+        </div>
+     </div>
+      {% endfor %}
+
+</div>
+</div>
+</div>
+</main>
+{% endblock %}
+{% endembed %}
+

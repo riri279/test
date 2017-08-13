@@ -1,0 +1,177 @@
+{% extends 'partials/home_base.html.twig' %}
+
+{% block content %}
+  
+<div class="hero">
+  <div id="top-nav">
+    <img class="logo" src="{{ url('theme://images/logo.png') }}">
+    <input id="burger" type="checkbox" />
+    <label for="burger">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+    </label>
+    <nav>
+        <ul>
+          <li>
+            <a href="../home">Home</a>
+          </li>
+          <li>
+            <a href="../about">About Next Gen</a>
+            <ul class="dropdown">
+                <li><a href="/about/programs">Programs</a></li>
+                <li><a href="/about/team">Team</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="../community">Community</a>
+            <ul class="dropdown">
+                <li><a href="/community/job-board">Job Board</a></li>
+                <li><a href="/community/job-description">Job Description</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/initiatives">Initiatives</a>
+            <ul class="dropdown">
+                <li><a href="/initiatives/calendar">Laptops</a></li>
+                <li><a href="/initiatives/events">Monitors</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/get-involved">Get Involved</a>
+            <ul class="dropdown">
+                <li><a href="/get-involved/become-sponsor-1">Become a Sponsor</a></li>
+                <li><a href="/get-involved/donate">Donate</a></li>
+                <li><a href="/get-involved/volunteer">Volunteer</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+  </div>
+
+  <div class="cont">
+  <h2 id="slogan">Inspiring the Next Generation</h2>
+  <h5 id="hero-sub">Helping youth in the Caribbean explore their passion as techies and entrepreneurs.</h5>
+  <a class="waves-effect waves-light btn">learn more</a>
+  </div>
+  </div>
+  <main>
+  <div class="container">
+    <div class="section home-involved">
+      <h5 class="white-text center home-sub">Get Involved</h5>
+      <div class="center row">
+        <div class="col s4">
+          <div class="module mid">
+            <a>More<i class="rarrow material-icons">keyboard_arrow_right</i></a>
+          </div>
+          <p class="home-sub-green">Volunteer With Us</p>
+        </div>
+        <div class="col s4 circle">
+          <div class="module mid">
+            <a>More<i class="rarrow material-icons">keyboard_arrow_right</i></a>
+          </div>
+          <p class="home-sub-green">Donate to Us</p>
+        </div>
+        <div class="col s4 circle">
+          <div class="module mid">
+            <a>More<i class="rarrow material-icons">keyboard_arrow_right</i></a>
+          </div>
+        <p class="home-sub-green">Sponsor Us</p>
+      </div>
+    </div>
+    <div class="section home-join">
+      <h5 class="white-text center home-sub">Join the Community</h5>
+      <div class="valign-wrapper center-align row">
+        <div class="col s12">
+          <img class="responsive-img" src="https://s-media-cache-ak0.pinimg.com/originals/c7/85/6c/c7856c99bb69561e1b9b49d4999860d8.jpg">
+          <div class="home-below-text center-align">
+          <p class="white-text center">You see the hedges, how I got it shaped up? It’s important to shape up your hedges, it’s like getting a haircut, stay fresh. Eliptical talk. Fan luv. Find peace, life is like a water fall, you’ve gotta flow. </p>
+          </div>
+          <a class="waves-effect waves-light center btn">join us</a>
+        </div>
+      </div>
+    </div>
+    <div class="section home-programs">
+      <h5 class="white-text center home-sub">Our Programs</h5>
+      <div class="row valign-wrapper">
+        <div class="col s6">
+          <img class="right programs-img responsive-img" src="https://s3.amazonaws.com/StartupStockPhotos/uploads/20160503/5.jpg">
+        </div>
+        <div class="col s6">
+          <div class="two-right left">
+          <h5 class="white-text">Hackathons</h5>
+          <p class="white-text">In life there will be road blocks but we will over come it. I’m giving you cloth talk, cloth. Special cloth alert, cut from a special cloth. To succeed you must believe. When you believe, you will succeed. Cloth talk. The key to success is to keep your head above the water, never give up.</p>
+          <a class="waves-effect waves-light light-blue-text accent-2  hero-learn"><i class="material-icons right">add</i>learn more</a>
+        </div>
+        </div>
+      </div>
+      <div class="row valign-wrapper">
+        <div class="col s6">
+          <div class="two-right right">
+          <h5 class="white-text">Workshops</h5>
+          <p class="white-text">The ladies always say Khaled you smell good, I use no cologne. Cocoa butter is the key. Put it this way, it took me twenty five years to get these plants, twenty five years of blood sweat and tears, and I’m never giving up, I’m just getting started.  You do know, you do know that they don’t want you to have lunch. I’m keeping it real with you, so what you going do is have lunch.</p>
+          <a class="waves-effect waves-light light-blue-text accent-2  hero-learn"><i class="material-icons right">add</i>learn more</a>
+        </div>
+         </div>
+        <div class="col s6">
+          <img class="left programs-img responsive-img" src="http://startupship.org/wp-content/uploads/2015/02/59-e1423431288998-1000x600.jpg">
+        </div>
+      </div>
+      <div class="row valign-wrapper">
+        <div class="col s6">
+          <img class="right programs-img responsive-img" src="https://s3.amazonaws.com/StartupStockPhotos/20140808_StartupStockPhotos/53.jpg">
+        </div>
+
+        <div class="col s6">
+          <div class="two-right left">
+          <h5 class="white-text">Community Events</h5>
+          <p class="white-text">How’s business? Boomin. Bless up. They key is to have every key, the key to open every door. You smart, you loyal, you a genius. Hammock talk come soon. You smart, you loyal, you a genius. Put it this way, it took me twenty five years to get these plants, twenty five years of blood sweat and tears, and I’m never giving up, I’m just getting started.</p>
+          <a class="waves-effect waves-light light-blue-text accent-2  hero-learn"><i class="material-icons right">add</i>learn more</a>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="section home-contact">
+      <h5 class="white-text center home-sub">Contact Us</h5>
+      <p class="white-text">Email: info@nextgencreators.com</p>
+      <p class="white-text">Cell-Phone: 876-451-3421</p>
+      <div class="row center">
+        <div id="vf2" class="row container-inner-inner">
+          <div class="input-field col s12">
+            <input id="name" type="text" class="validate">
+            <label for="name">Full Name</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="email" type="email" class="validate">
+            <label for="email" data-error="wrong" data-success="right">Email</label>
+          </div>
+           <div class="input-field col s12">
+            <input id="subject" type="text" class="validate">
+            <label for="subject">Subject</label>
+          </div>
+          <div class="input-field col s12">
+            <textarea id="message" class="materialize-textarea"></textarea>
+            <label for="message">Message</label>
+          </div>
+        </div>
+      <a class="waves-effect waves-light center btn">submit</a>
+      </div>
+    </div>
+    <div class="section home-sponsors">
+      <h5 class="white-text center home-sub">Sponsors and Donors</h5>
+      <div class="center row">
+        <div class="col s6">
+          <img class="responsive-img" src="https://cdn.dribbble.com/assets/dribbble-logo-graph-dnld-a5f51e6e8f6c6bd334b1dc962110bdbf8d19c56d81b767e144e7de7b15689618.png">
+        </div>
+        <div class="col s6">
+           <img class="responsive-img" src="https://cdn.dribbble.com/assets/dribbble-logo-graph-dnld-a5f51e6e8f6c6bd334b1dc962110bdbf8d19c56d81b767e144e7de7b15689618.png">
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  </main>
+
+
+{% endblock %}

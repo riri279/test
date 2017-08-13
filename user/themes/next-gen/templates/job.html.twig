@@ -1,0 +1,29 @@
+{% embed 'partials/base.html.twig' %}
+{% block content %}
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container"><!-- 
+      <h4 class="header pt-serif white-text" style="padding-left: 1.5em;">Software Engineer</h4> -->
+      <div class="container-inner">
+         <div class="section">
+        <h6 class="header pt-serif subtext white-text">{{ page.header.job_title }}</h6>
+        <div class="b-fix white-text" style="padding: 0 1em;">
+        {{ page.content }}</div>
+
+        <h6 class="header pt-serif subtext white-text">Who you Are:</h6>
+        <p class="white-text" style="padding: 0 1em;">{{ page.header.who_you_are }}</p>
+
+        <h6 class="header pt-serif subtext white-text">Required:</h6>
+        <p class="white-text" style="padding: 0 1em;"">{{ page.header.required }}</p>
+
+        <h6 class="header pt-serif subtext white-text">Location:</h6>
+        <p class="white-text" style="padding: 0 1em;">{{ page.header.location }}</p>
+
+        <div class="center" style="padding-top: 2em;">
+        <a class="s-green waves-effect waves-light btn" style="padding: 0 5rem;">submit</a>
+
+        </div>  
+        </div>
+        </div>
+  </div>
+{% endblock %}
+{% endembed %}

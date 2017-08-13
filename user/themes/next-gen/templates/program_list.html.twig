@@ -1,0 +1,56 @@
+{% set programs = page.collection({'items':'@self.children', 'pagination': true, 'limit': 10, 'order': {'by': 'default', 'dir': 'asc'}}) %}
+{% embed 'partials/base.html.twig' %}
+{% block content %}
+<main class="programs">
+  <div class="container">
+   <div class="section">
+    <h5 class="white-text home-sub">Our Programs</h5>
+    
+    <div class="row">
+      <div class="col s12" style="width: 85%;margin:0 auto;">
+      <p class="white-text">The key to more success is to get a massage once a week, very important, major key, cloth talk. The key to more success is to have a lot of pillows. </p>
+      </div>
+    </div>
+ 
+    {% for prog in programs %}
+      {% if loop.index is odd %}
+      <div class="row">
+      <div class="col s6">
+      <style>
+          .testi {
+            width: 90% !important;
+          }
+      </style>
+        {% for image in prog.media.images %}
+          {{ image.html('t', 'programs', 'right programs-img responsive-img testi') }}
+        {% endfor %}
+      </div>
+      <div class="col s6">
+        <div class="white-text two-right left">
+          <h5><a href="{{ prog.url }}">{{ prog.title }}</a></h5>
+          <p>{{ prog.content | truncate(400, true)}}. . . . . .</p>
+          <a class="waves-effect waves-light light-blue-text accent-2  hero-learn" href="{{ prog.url }}"><i class="material-icons right">add</i>learn more</a>
+        </div>
+      </div>
+      </div>
+      {% else %} 
+      <div class="row">
+      <div class="col s6">
+        <div class="white-text two-right right">
+          <h5><a href="{{ prog.url }}">{{ prog.title }}</a></h5>
+          <p>{{ prog.content | truncate(400, true) }}. . . . . .</p>
+          <a class="waves-effect waves-light light-blue-text accent-2  hero-learn" href="{{ prog.url }}"><i class="material-icons right">add</i>learn more</a>
+        </div>
+      </div>
+      <div class="col s6">
+        {% for image in prog.media.images %}
+          {{ image.html('t', 'programs', 'left programs-img responsive-img') }}
+        {% endfor %}
+      </div>
+      </div>
+      {% endif %}
+    {% endfor %} 
+</main>
+{% endblock %}
+{% endembed %}
+

@@ -1,0 +1,18 @@
+{% embed 'partials/base.html.twig' %}
+
+{% block content %}
+<div class="container">
+<div class="container center-align img-header">
+{% set image = page.media.images|first %}
+      {% if image != null %}
+          {{ image.cropZoom(960,320).html }}
+      {% endif %}
+
+      <h4 class="header white-text" id="event-title">{{ page.title }}</h4>
+	<div class="project-descr white-text">
+	{{ page.content }}
+	</div>
+</div>
+</div>
+{% endblock %}
+{% endembed %}

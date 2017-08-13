@@ -1,0 +1,151 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+<br>
+<br>
+
+
+{# {% include "forms/form.html.twig" %}
+    {{ content }} #}
+   {% if form is null %}
+    {% set form = grav.session.getFlashObject('form') %}
+{% endif  %}
+
+{% if form.message %}
+    {% if form.inline_errors and form.messages %}
+        <div class="alert notices {{ form.message_color ?: 'green' }}"><p>{{ "FORM.VALIDATION_FAIL"|t|raw }}</p></div>
+    {% else %}
+        <div class="alert notices {{ form.message_color ?: 'green' }}"><p>{{ form.message|raw }}</p></div>
+    {% endif %}
+{% endif %}
+{% set scope = scope ?: 'data.' %}
+{% set multipart = '' %}
+{% set method = form.method|upper|default('POST') %}
+
+{% for field in form.fields %}
+    {% if (method == 'POST' and field.type == 'file') %}
+        {% set multipart = ' enctype="multipart/form-data"' %}
+    {% endif %}
+{% endfor %}
+
+{% set action = form.action ? base_url ~ form.action : base_url ~ page.route ~ uri.params %}
+
+{% if (action == base_url_relative) %}
+    {% set action = base_url_relative ~ '/' ~ page.slug %}
+{% endif %}
+
+
+<form name="{{ form.name }}"
+      action="{{ action }}"
+      method="{{ method }}"{{ multipart }}
+      {% if form.id %}id="{{ form.id }}"{% endif %}
+      {% block form_classes %}
+      {% if form.classes %}class="{{ form.classes }}"{% endif %}
+      {% endblock %}
+>
+
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <div class="container-inner">
+         
+           <h4 class="header pt-serif white-text" style="margin-bottom: 1em;">Volunteer with us!</h4>
+        <p class="open-sans white-text">Here's how you can get in on the action:</p>
+        <div class="container-inner-inner">
+      <div id="volunteer-form" class=" open-sans">
+       <!--  <p><input type="checkbox" class="filled-in" id="1" /><label for="1">I'm good at explaining things</label></p>
+        <p><input type="checkbox" class="filled-in" id="2" /><label for="2">I'm super organized</label></p>
+        <p><input type="checkbox" class="filled-in" id="3" /><label for="3">I have lots of friends</label></p>
+        <p><input type="checkbox" class="filled-in" id="4" /><label for="4">I have other cool skils</label></p> -->
+     {% block inner_markup_fields_start %}{% endblock %}
+
+  {% for field in form.fields %}
+    {% if field.name == 'skillset' %}
+    {% if field.type == 'file' %}
+        {% do assets.addJs('plugin://form/assets/form.min.js') %}
+    {% endif %}
+    {% set value = form.value(field.name) %}
+    {% include "forms/fields/#{field.type}/#{field.type}.html.twig" ignore missing %}
+    {% endif %}
+  {% endfor %}
+        </div>    
+        </div>
+
+        <div class="section">
+         <p class="open-sans white-text">Now tell us how we can get in touch with you!</p>
+
+      
+      <div id="vf2" class="row container-inner-inner">
+      {% for field in form.fields %}
+    {% if (field.type == 'text') or (field.type == 'email')%}
+    {% if field.type == 'file' %}
+        {% do assets.addJs('plugin://form/assets/form.min.js') %}
+    {% endif %}
+    {% set value = form.value(field.name) %}
+    {% include "forms/fields/#{field.type}/#{field.type}.html.twig" ignore missing %}
+    {% endif %}
+  {% endfor %}
+
+        <!-- <div class="input-field col s12">
+          <input name="first_name" id="first_name" type="text" class="validate" required>
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s12">
+          <input name="last_name" id="last_name" type="text" class="validate" required>
+          <label for="last_name">Last Name</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="email" name="data[email]" type="email" class="validate" required>
+          <label for="email" data-error="wrong" data-success="right">Email</label>
+        </div> -->
+      </div>
+      </div>
+  </div>
+</div>
+</div>
+
+
+
+  {% include "forms/fields/formname/formname.html.twig" %}
+
+  {% block inner_markup_fields_end %}{% endblock %}
+
+  {% block inner_markup_buttons_start %}
+  <div class="buttons">
+  {% endblock %}
+
+  {% for button in form.buttons %}
+      {% if button.outerclasses is defined %}<div class="{{ button.outerclasses }}">{% endif %}
+          {% if button.url %}
+              <a href="{{ button.url starts with 'http' ? button.url : url(button.url) }}">
+          {% endif %}
+          <button
+                {% if button.id %}id="{{ button.id }}"{% endif %}
+                {% block button_classes %}
+                class="{{ button.classes|default('button') }}"
+                {% endblock %}
+                {% if button.disabled %}disabled="disabled"{% endif %}
+
+                type="{{ button.type|default('submit') }}"
+
+                {% if button.task %}
+                    name="task" value="{{ button.task }}"
+                {% endif %}
+            >
+                {{ button.value|t|default('Submit') }}
+          </button>
+          {% if button.url %}
+              </a>
+          {% endif %}
+      {% if button.outerclasses is defined %}</div>{% endif %}
+  {% endfor %}
+
+  {% block inner_markup_buttons_end %}
+  </div>
+  {% endblock %}
+
+  {{ nonce_field('form', 'form-nonce')|raw }}
+</form>
+
+
+{% endblock %}
+
